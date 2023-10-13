@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Boggle Game</title>
+</head>
+<body>
+    <h1>Welcome to Boggle!</h1>
+    <h2>The Boggle Board!</h2>
+    <table>
+        {% for row in board %}
+            <tr>
+                {% for letter in row %}
+                    <td>{{ letter }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Submit Your Guess:</h2>
+    <form id="word-form" action="/check_word" method="post">
+        <input type="text" id="guess" name="guess" placeholder="Enter your word">
+        <button type="submit" id="submit-button" >Submit</button>
+    </form>
+    <div id="result-message"></div>
+    <div id="score">Score: 0</div>
+
+    <div id="timer">Time remaining: 60 seconds</div>
+</body>
+</html>
